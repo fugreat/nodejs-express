@@ -3,10 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {
-                        title: '主页 啦啦',
-                        layout: 'layout'
-                       }
+  res.render('mac',  //存放对应view的名字
+        { title: '存放mac电脑简介页面' }
   );
 });
 
