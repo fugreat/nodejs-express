@@ -8,20 +8,18 @@ var bodyParser = require('body-parser');
 //页面定义
 var routes = require('./routes/index');
 var mac = require('./routes/mac');
+var test = require('./routes/test');
 
 var ejs = require("ejs");
 var app = express();
 //为实现ejs下模板集成，安装express-partials模块
 //参考笔记http://www.cnblogs.com/greenteaone/p/3685733.html
-var partials = require("express-partials");
 
 
 // view engine setup
 //app.engine('.html', ejs.__express);
 app.set('views', path.join(__dirname, 'views')); //设置视图根目录
 app.set('view engine', 'ejs'); //设置视图模块引擎
-
-app.use(partials());
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico')); //设置图标路径
@@ -35,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //设置访问页面路由
 app.use('/', routes);
 app.use('/mac', mac);
-
+app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
